@@ -15,7 +15,7 @@
 int main()
 {
 
-	float sz = 15.f;
+	float sz = 10.f;
 
 
 	Line line1(Vec3f(0.f, 0.f, 0.f), Vec3f(sz, 0.f, 0.f));
@@ -51,27 +51,19 @@ int main()
 
 
 
-	Torus t(12, 5);
+	Torus t(10, 2);
+	t.transform(Vec3f(30, 30, 0), Vec3f(RADIAN(45), RADIAN(45), RADIAN(0)), Vec3f(sz / 2, sz / 2, sz / 2));
 	
 	ConsoleRenderer r;
-	
-	r.addShapeToScene(&line1);
-	r.addShapeToScene(&line2);
-	r.addShapeToScene(&line3);
-	r.addShapeToScene(&line4);
-	r.addShapeToScene(&line5);
-	r.addShapeToScene(&line6);
-	r.addShapeToScene(&line7);
-	r.addShapeToScene(&line8);
-	r.addShapeToScene(&line9);
-	r.addShapeToScene(&line10);
-	r.addShapeToScene(&line11);
-	r.addShapeToScene(&line12);
 
-	r.initializeViewPort(30, 30);
+	for (int i = 0; i < lines.size(); i++)
+	{
+		r.addShapeToScene(lines[i]);
+	}
 
-//	t.transform(Vec3f(20, 20, 0), Vec3f(RADIAN(0), RADIAN(0), 0), Vec3f(0, 0, 0));
+	r.addShapeToScene(&t);
 
+	r.initializeViewPort(60, 60);
 
 	for (int k = 0; k < 360; k += 10)
 	{
@@ -84,8 +76,8 @@ int main()
 			lines[i]->transform(Vec3f(10, 10, 0), Vec3f(RADIAN(45), RADIAN(45), RADIAN(k)), Vec3f(sz/2, sz/2, sz/2));
 		}
 
-	//	r.setCameraTransform(Vec3f(20, 0, 0), Vec3f(RADIAN(k), RADIAN(0), 0), Vec3f(20, 20, 5));
-
+	//	r.setCameraTransform(Vec3f(0, 0, 0), Vec3f(RADIAN(k), 0, 0), Vec3f(0, 0, 0));
+		
 		r.render();
 
 		r.display();
