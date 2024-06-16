@@ -1,7 +1,7 @@
 # ConsoleRenderer
 
-My goal with this project is to make a console 3D renderer. Currntly, It only render preprogrammed Parametric shapes without any shading. 
-IT supports rotation and transformation of individual shapes and the viewport as a whole.
+My goal with this project is to make a console 3D renderer. Currently, It only render preprogrammed Parametric shapes without any shading. 
+Ir supports rotation and transformation of individual shapes and the viewport as a whole.
 
 ## Click to Watch preview
 
